@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(360deg, #ffe2f3, white); /* темный фон */
+  color: #fff; /* цвет текста */
+  background-repeat: no-repeat;
+   min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background: linear-gradient(to left, #8497FF, #186DEE); /* голубой цвет */
+  padding: 20px;
+  color: #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.file-info {
+  background-color: #424242; /* серый цвет */
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.file-info h2 {
+  border-radius: 20px;
+  margin-bottom: 2px;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #186DEE; /* голубой цвет */
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  background-image: linear-gradient(75deg, #0d7fff, #81cbff); 
+  background-size: 300% ;
+  background-position: left;
+
+  transition: 300ms background-position ease-in-out;
+}
+
+.download-button:hover {
+  background-position: right; 
+    box-shadow: 0px 0px 50px #98cbff;
+}
+
+.get-button {
+ display: inline-block;
+  padding: 10px 20px;
+  background-color: #186DEE; /* голубой цвет */
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  background-image: linear-gradient(75deg, #0d7fff, #81cbff); 
+  background-size: 300% ;
+  background-position: left;
+
+  transition: 300ms background-position ease-in-out;
+}
+
+.get-button:hover {
+  background-position: right; 
+    box-shadow: 0px 0px 50px #98cbff;
+}

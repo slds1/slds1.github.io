@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SalupovCloud</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+      .version {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <img src="SalupovCloud.png" alt="SalupovCloud Logo">
+      </div>
+      <h1>SalupovCloud</h1>
+    </div>
+    <div class="file-info">
+      <h2>Upload your file</h2>
+      <p>Upload and save your file to SalupovCloud</p>
+      <input type="file" id="fileInput" style="display: none;">
+      <a href="#" class="download-button" id="uploadButton">Upload</a>
+      <a href="#" class="get-button" id="downloadLink" style="display: none;"></a> 
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('uploadButton').addEventListener('click', function() {
+      document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function() {
+      var file = this.files[0];
+      if (file) {
+        var formData = new FormData();
+        formData.append('file', file);
+        fetch('upload.php', {
+          method: 'POST',
+          body: formData
+        }).then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Error uploading file.');
+          }
+        }).then(data => {
+          if (data.status === 'success') {
+            var downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = data.fileUrl;
+            downloadLink.textContent = 'Download File';
+            downloadLink.style.display = 'inline-block'; // Display the link
+            alert('File uploaded successfully. Click the link below to download:\n' + data.fileUrl);
+          } else {
+            throw new Error(data.message);
+          }
+        }).catch(error => {
+          console.error('Error:', error.message);
+          alert('Error: ' + error.message);
+        });
+      }
+    });
+  </script>
+  <div class="version">Cloud Version: 1.0.3 (secured)</div>
+</body>
+</html>
