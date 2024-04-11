@@ -39,36 +39,7 @@
       window.location.href = "https://www.google.com"; // Redirects to Google.com
     });
 
-    document.getElementById('fileInput').addEventListener('change', function() {
-      var file = this.files[0];
-      if (file) {
-        var formData = new FormData();
-        formData.append('file', file);
-        fetch('upload.php', {
-          method: 'POST',
-          body: formData
-        }).then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error('Error uploading file.');
-          }
-        }).then(data => {
-          if (data.status === 'success') {
-            var downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = data.fileUrl;
-            downloadLink.textContent = 'Download File';
-            downloadLink.style.display = 'inline-block'; // Display the link
-            alert('File uploaded successfully. Click the link below to download:\n' + data.fileUrl);
-          } else {
-            throw new Error(data.message);
-          }
-        }).catch(error => {
-          console.error('Error:', error.message);
-          alert('Error: ' + error.message);
-        });
-      }
-    });
+    
   </script>
   <div class="version">Cloud Version: 1.0.3 (secured)</div>
 </body>
