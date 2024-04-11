@@ -29,18 +29,23 @@
       <h2>Upload your file</h2>
       <p>Upload and save your file to SalupovCloud</p>
       <input type="file" id="fileInput" style="display: none;">
-      <a href="#" class="download-button" id="uploadButton">Telegram</a> <!-- Changed text on button -->
+      <a href="#" class="download-button" id="tg">Telegram</a> <!-- Changed text on button -->
+      <a href="#" class="download-button" id="twit">Twitter</a>
       <a href="#" class="get-button" id="downloadLink" style="display: none;"></a> 
     </div>
   </div>
 
   <script>
-    document.getElementById('uploadButton').addEventListener('click', function() {
+    document.getElementById('tg').addEventListener('click', function() {
       window.location.href = "https://t.me/realdotnofake"; // Redirects to Google.com
+    });
+
+    document.getElementById('twit').addEventListener('click', function() {
+      window.location.href = "https://x.com/salupovcloud"; // Redirects to Google.com
     });
 
     
   </script>
-  <div class="version">Cloud Version: 1.0.3 (secured)</div>
+  <div class="version">About (based on SalupovCloud</div>
 </body>
 </html>
